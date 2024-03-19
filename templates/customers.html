@@ -7,55 +7,22 @@ Customers
 {% block page_content %}
 
 <div class="row">
-    <div class="col">
-        <h1>Customers Page is working!</h1>
+    <div class="col my-3">
+        <h1>Customers</h1>
     </div>
 </div>
 <div class="row">
+    {% for user in users_in_template %}
     <div class="col-md-4 my-3">
         <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
+            <img src="{{ user['avatar'] }}" class="card-img-top" alt="{{ user['username'] }}">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">{{ user['name'] }}</h5>
+                <a href="{{ url_for('customer', id=user['id']) }}" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>
-    <div class="col-md-4 my-3">
-        <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 my-3">
-        <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 my-3">
-        <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
